@@ -6,11 +6,17 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
-public class TacoOrder {
+public class TacoOrder implements Serializable {
+    private static final long SerialVersionUID=1L;
+    private Long id;
+    private Date placedAt;
     @NotBlank(message="Delivery name is required")
     private String deliveryName;
     @NotBlank(message = "Street is required")
@@ -18,6 +24,7 @@ public class TacoOrder {
     @NotBlank(message = "City is required")
     private String deliveryCity;
     @NotBlank(message = "State is required")
+    @Size(max = 2, message = "Not a valid state format")
     private String deliveryState;
     @NotBlank(message="Zip code is required")
     private String deliveryZip;
