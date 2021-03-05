@@ -27,6 +27,10 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.4.3'
+    implementation 'com.h2database:h2:1.4.200'
+
+
 }
 
 test {
